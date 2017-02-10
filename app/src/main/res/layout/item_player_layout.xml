@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#897f7f"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/playIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/player_btn_play_y_normal" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/playIcon"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/songName"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="歌名"
+            android:textColor="#161616"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/songAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="演唱者"
+            android:textColor="#686363"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/playList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/minibar_btn_playlist_normal" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/playList"
+        android:src="@mipmap/player_btn_play_press" />
+
+</RelativeLayout>
