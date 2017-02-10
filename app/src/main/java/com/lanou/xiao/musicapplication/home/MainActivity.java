@@ -15,6 +15,7 @@ import com.lanou.xiao.musicapplication.base.BaseActivity;
 import com.lanou.xiao.musicapplication.eventbusmsg.ServiceCreateMsg;
 import com.lanou.xiao.musicapplication.eventbusmsg.ServiceReceiveMsg;
 import com.lanou.xiao.musicapplication.eventbusmsg.ServiceSendMsg;
+import com.lanou.xiao.musicapplication.musichouse.MusicHouseFragment;
 import com.lanou.xiao.musicapplication.service.MusicService;
 
 import org.greenrobot.eventbus.EventBus;

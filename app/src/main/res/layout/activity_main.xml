@@ -31,6 +31,6 @@
         android:id="@+id/itemPlay"
         layout="@layout/item_player_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/bottom_item_height"
         android:layout_gravity="bottom" />
 </FrameLayout>

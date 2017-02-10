@@ -37,16 +37,14 @@ import java.util.List;
  */
 
 public class MeFragment extends BaseFragment {
-    private TextView playTv;
 
     @Override
     public int getLayoutId() {
-        return R.layout.fragment_local;
+        return R.layout.fragment_me;
     }
 
     @Override
     public void initView(View view) {
-        playTv = bindView(R.id.playTv);
     }
 
     @Override
