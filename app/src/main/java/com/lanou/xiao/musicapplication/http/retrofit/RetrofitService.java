@@ -1,13 +1,10 @@
-package com.lanou.xiao.musicapplication.http;
+package com.lanou.xiao.musicapplication.http.retrofit;
 
 import com.lanou.xiao.musicapplication.bean.BillCategoryBean;
 import com.lanou.xiao.musicapplication.bean.GeDanBean;
 import com.lanou.xiao.musicapplication.bean.GeDanInfoBean;
 import com.lanou.xiao.musicapplication.bean.GetHotGeDanAndOfficialBean;
 
-import java.io.InputStream;
-
-import okhttp3.Response;
 import okhttp3.ResponseBody;
 import retrofit2.CallAdapter;
 import retrofit2.Converter;

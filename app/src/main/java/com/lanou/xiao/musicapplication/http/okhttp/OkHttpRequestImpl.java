@@ -1,10 +1,9 @@
-package com.lanou.xiao.musicapplication.http;
+package com.lanou.xiao.musicapplication.http.okhttp;
 
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.NonNull;
-import android.util.Log;
 
 import com.google.gson.Gson;
 

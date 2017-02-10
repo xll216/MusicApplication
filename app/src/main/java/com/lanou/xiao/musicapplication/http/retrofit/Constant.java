@@ -1,16 +1,4 @@
-package com.lanou.xiao.musicapplication.http;
-
-import okhttp3.MultipartBody;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.http.GET;
-import retrofit2.http.Headers;
-import retrofit2.http.Multipart;
-import retrofit2.http.POST;
-import retrofit2.http.Part;
-import retrofit2.http.Path;
-import rx.Observable;
+package com.lanou.xiao.musicapplication.http.retrofit;
 
 /**
  * 　　　　　　　　┏┓　　　┏┓+ +
@@ -36,22 +24,25 @@ import rx.Observable;
  * 　　　　　　　　　　┗┻┛　┗┻┛+ + + +
  */
 
-public interface ImageService {
+public interface Constant {
+    //项目基础地址
+    String BASE_URL = "http://tingapi.ting.baidu.com/";
+    //项目基础地址
+    String BASE_API_URL = "v1/restserver/ting";
 
-    /**
-     * 下载图片
-     **/
-    @GET("{url}")
-    @Headers({"Content-Type: image/jpeg"})
-    Observable<ResponseBody> downloadImage(@Path("url") String url);
+    String METHOD = "?method=";
+    //首页热门推荐url
+    String GETHOTGEDANANDOFFICIAL = "baidu.ting.diy.getHotGeDanAndOfficial";
 
+    String URL_GETHOTGEDANANDOFFICIAL = BASE_URL + BASE_API_URL + METHOD + "baidu.ting.diy.getHotGeDanAndOfficial";
+    //首页热门歌单url
+    String GEDAN = "baidu.ting.diy.gedan";
+    String URL_GEDAN = BASE_URL + BASE_API_URL + METHOD + "baidu.ting.diy.gedan";
+    //排行榜url
+    String BILLCATEGORY = "baidu.ting.billboard.billCategory";
+    //歌单列表—热门歌单与推荐点击后传入参数listid
+    String GEDANINFO = "baidu.ting.diy.gedanInfo";
 
-    /**
-     * 文件上传
-     **/
-    @Multipart
-    @POST("upload.php")
-    Call<ResponseBody> upload(@Part MultipartBody.Part file);
-
-
+    String IMG_BASE_URL = "http://musicugc.cdn.qianqian.com/ugcdiy/pic/";
+    String IMG_URL = "a88d6df76ab481e909604034f3548d65.jpg";
 }

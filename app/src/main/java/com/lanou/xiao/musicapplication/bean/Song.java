@@ -1,12 +1,4 @@
-package com.lanou.xiao.musicapplication.base.mvp.model;
-
-import com.lanou.xiao.musicapplication.bean.BillCategoryBean;
-import com.lanou.xiao.musicapplication.bean.GeDanBean;
-import com.lanou.xiao.musicapplication.bean.GeDanInfoBean;
-import com.lanou.xiao.musicapplication.bean.GetHotGeDanAndOfficialBean;
-import com.lanou.xiao.musicapplication.http.retrofit.RetrofitService;
-
-import rx.Subscriber;
+package com.lanou.xiao.musicapplication.bean;
 
 /**
  * 　　　　　　　　┏┓　　　┏┓+ +
@@ -30,26 +22,14 @@ import rx.Subscriber;
  * 　　　　　　　　　┗┓┓┏━┳┓┏┛ + + + +
  * 　　　　　　　　　　┃┫┫　┃┫┫
  * 　　　　　　　　　　┗┻┛　┗┻┛+ + + +
+ * 自定义歌曲类
  */
 
-public class AppRetrofitModelImpl implements AppRetrofitModel {
-    @Override
-    public void getHotGeDanAndOfficial(Subscriber<GetHotGeDanAndOfficialBean> subscriber) {
-        RetrofitService.getInstance().getHotGeDanAndOfficial(subscriber);
-    }
+public class Song {
+    private String id;
+    private String title;
+    private String picture;
+    private String author;
+    private String lrcUrl;
 
-    @Override
-    public void billCategory(Subscriber<BillCategoryBean> subscriber) {
-        RetrofitService.getInstance().billCategory(subscriber);
-    }
-
-    @Override
-    public void getGeDanList(Subscriber<GeDanBean> subscriber) {
-        RetrofitService.getInstance().getGeDanList(subscriber);
-    }
-
-    @Override
-    public void getGeDanInfo(int id,Subscriber<GeDanInfoBean> subscriber) {
-        RetrofitService.getInstance().getGeDanInfo(id,subscriber);
-    }
 }

@@ -1,12 +1,13 @@
-package com.lanou.xiao.musicapplication.base.mvp.model;
+package com.lanou.xiao.musicapplication.http.retrofit;
 
 import com.lanou.xiao.musicapplication.bean.BillCategoryBean;
 import com.lanou.xiao.musicapplication.bean.GeDanBean;
 import com.lanou.xiao.musicapplication.bean.GeDanInfoBean;
 import com.lanou.xiao.musicapplication.bean.GetHotGeDanAndOfficialBean;
-import com.lanou.xiao.musicapplication.http.retrofit.RetrofitService;
 
-import rx.Subscriber;
+import retrofit2.http.GET;
+import retrofit2.http.Query;
+import rx.Observable;
 
 /**
  * 　　　　　　　　┏┓　　　┏┓+ +
@@ -32,24 +33,30 @@ import rx.Subscriber;
  * 　　　　　　　　　　┗┻┛　┗┻┛+ + + +
  */
 
-public class AppRetrofitModelImpl implements AppRetrofitModel {
-    @Override
-    public void getHotGeDanAndOfficial(Subscriber<GetHotGeDanAndOfficialBean> subscriber) {
-        RetrofitService.getInstance().getHotGeDanAndOfficial(subscriber);
-    }
+public interface ApiService {
 
-    @Override
-    public void billCategory(Subscriber<BillCategoryBean> subscriber) {
-        RetrofitService.getInstance().billCategory(subscriber);
-    }
+    /**
+     * 首页热门推荐
+     **/
+    @GET(Constant.BASE_API_URL)
+    Observable<GetHotGeDanAndOfficialBean> getHotGeDanAndOfficial(@Query("method") String method);
 
-    @Override
-    public void getGeDanList(Subscriber<GeDanBean> subscriber) {
-        RetrofitService.getInstance().getGeDanList(subscriber);
-    }
+    /**
+     * 首页热门歌单
+     **/
+    @GET(Constant.BASE_API_URL)
+    Observable<BillCategoryBean> billCategory(@Query("method") String method);
 
-    @Override
-    public void getGeDanInfo(int id,Subscriber<GeDanInfoBean> subscriber) {
-        RetrofitService.getInstance().getGeDanInfo(id,subscriber);
-    }
+    /**
+     * 排行榜
+     **/
+    @GET(Constant.BASE_API_URL)
+    Observable<GeDanBean> getGeDanList(@Query("method") String method);
+
+    /**
+     * 歌单列表—热门歌单与推荐点击
+     **/
+    @GET(Constant.BASE_API_URL)
+    Observable<GeDanInfoBean> getGeDanInfo(@Query("method") String method, @Query("listid") int id);
+
 }

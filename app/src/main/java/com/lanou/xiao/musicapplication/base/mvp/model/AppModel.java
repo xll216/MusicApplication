@@ -1,6 +1,6 @@
 package com.lanou.xiao.musicapplication.base.mvp.model;
 
-import com.lanou.xiao.musicapplication.http.OnCompletedListener;
+import com.lanou.xiao.musicapplication.http.okhttp.OnCompletedListener;
 
 import java.lang.reflect.Type;
 import java.util.Map;

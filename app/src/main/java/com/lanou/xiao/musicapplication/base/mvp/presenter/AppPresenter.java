@@ -1,11 +1,9 @@
 package com.lanou.xiao.musicapplication.base.mvp.presenter;
 
-import android.util.Log;
-
 import com.lanou.xiao.musicapplication.base.mvp.model.AppModel;
 import com.lanou.xiao.musicapplication.base.mvp.model.AppModelImpl;
 import com.lanou.xiao.musicapplication.base.mvp.ui.AppView;
-import com.lanou.xiao.musicapplication.http.OnCompletedListener;
+import com.lanou.xiao.musicapplication.http.okhttp.OnCompletedListener;
 
 import java.lang.reflect.Type;
 import java.util.List;

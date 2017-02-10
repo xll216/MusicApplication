@@ -1,4 +1,4 @@
-package com.lanou.xiao.musicapplication.http;
+package com.lanou.xiao.musicapplication.http.okhttp;
 
 import java.lang.reflect.Type;
 import java.util.Map;

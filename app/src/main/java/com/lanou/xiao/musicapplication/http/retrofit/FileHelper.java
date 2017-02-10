@@ -1,4 +1,10 @@
-package com.lanou.xiao.musicapplication.http;
+package com.lanou.xiao.musicapplication.http.retrofit;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * 　　　　　　　　┏┓　　　┏┓+ +
@@ -24,25 +30,36 @@ package com.lanou.xiao.musicapplication.http;
  * 　　　　　　　　　　┗┻┛　┗┻┛+ + + +
  */
 
-public interface Constant {
-    //项目基础地址
-    String BASE_URL = "http://tingapi.ting.baidu.com/";
-    //项目基础地址
-    String BASE_API_URL = "v1/restserver/ting";
+public class FileHelper {
 
-    String METHOD = "?method=";
-    //首页热门推荐url
-    String GETHOTGEDANANDOFFICIAL = "baidu.ting.diy.getHotGeDanAndOfficial";
+    public static byte[] getBytesFromStream(InputStream is) throws IOException {
+        int len;
+        int size = 1024;
+        byte[] buf;
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        buf = new byte[size];
+        while ((len = is.read(buf, 0, size)) != -1) {
+            bos.write(buf, 0, len);
+        }
+        buf = bos.toByteArray();
+        return buf;
+    }
 
-    String URL_GETHOTGEDANANDOFFICIAL = BASE_URL + BASE_API_URL + METHOD + "baidu.ting.diy.getHotGeDanAndOfficial";
-    //首页热门歌单url
-    String GEDAN = "baidu.ting.diy.gedan";
-    String URL_GEDAN = BASE_URL + BASE_API_URL + METHOD + "baidu.ting.diy.gedan";
-    //排行榜url
-    String BILLCATEGORY = "baidu.ting.billboard.billCategory";
-    //歌单列表—热门歌单与推荐点击后传入参数listid
-    String GEDANINFO = "baidu.ting.diy.gedanInfo";
-
-    String IMG_BASE_URL = "http://musicugc.cdn.qianqian.com/ugcdiy/pic/";
-    String IMG_URL = "a88d6df76ab481e909604034f3548d65.jpg";
+    public static void saveBytesToFile(byte[] bytes, String path) {
+        FileOutputStream fileOuputStream = null;
+        try {
+            fileOuputStream = new FileOutputStream(path);
+            fileOuputStream.write(bytes);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                fileOuputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

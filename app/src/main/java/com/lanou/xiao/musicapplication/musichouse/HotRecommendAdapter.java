@@ -8,6 +8,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.lanou.xiao.musicapplication.R;
+import com.lanou.xiao.musicapplication.bean.GeDanBean;
+
+import java.util.List;
 
 /**
  * 　　　　　　　　┏┓　　　┏┓+ +
@@ -34,6 +37,12 @@ import com.lanou.xiao.musicapplication.R;
  */
 
 public class HotRecommendAdapter extends RecyclerView.Adapter<HotRecommendAdapter.ViewHolder> {
+    private List<GeDanBean.HotSongBean.SongBean> songList;
+
+    public void setSongList(List<GeDanBean.HotSongBean.SongBean> songList) {
+        this.songList = songList;
+        notifyDataSetChanged();
+    }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -43,13 +52,15 @@ public class HotRecommendAdapter extends RecyclerView.Adapter<HotRecommendAdapte
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-
+        GeDanBean.HotSongBean.SongBean song = songList.get(position);
+        holder.titleTv.setText(song.getTitle());
+        holder.authorTv.setText(song.getTag());
     }
 
 
     @Override
     public int getItemCount() {
-        return 10;
+        return songList != null ? songList.size() : 0;
     }
 
     protected class ViewHolder extends RecyclerView.ViewHolder {

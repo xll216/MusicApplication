@@ -6,9 +6,9 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:src="@mipmap/ic_launcher"
         android:layout_width="@dimen/list_img_width"
-        android:layout_height="@dimen/list_img_height" />
+        android:layout_height="@dimen/list_img_height"
+        android:src="@mipmap/ic_launcher" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,7 +25,6 @@
             android:maxLines="1"
             android:paddingBottom="@dimen/title_padding"
             android:paddingTop="@dimen/title_padding"
-            android:text="运动"
             android:textSize="@dimen/font_twenty" />
 
         <TextView
@@ -34,16 +33,14 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="1"
-            android:paddingBottom="@dimen/title_padding"
-            android:text="sash" />
+            android:paddingBottom="@dimen/title_padding" />
 
         <TextView
             android:id="@+id/descriptionTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ellipsize="end"
-            android:maxLines="1"
-            android:text="sash" />
+            android:maxLines="1" />
     </LinearLayout>
 
 </LinearLayout>

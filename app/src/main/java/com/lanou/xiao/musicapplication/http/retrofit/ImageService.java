@@ -1,10 +1,16 @@
-package com.lanou.xiao.musicapplication.http;
+package com.lanou.xiao.musicapplication.http.retrofit;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import okhttp3.MultipartBody;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.http.GET;
+import retrofit2.http.Headers;
+import retrofit2.http.Multipart;
+import retrofit2.http.POST;
+import retrofit2.http.Part;
+import retrofit2.http.Path;
+import rx.Observable;
 
 /**
  * 　　　　　　　　┏┓　　　┏┓+ +
@@ -30,36 +36,22 @@ import java.io.InputStream;
  * 　　　　　　　　　　┗┻┛　┗┻┛+ + + +
  */
 
-public class FileHelper {
+public interface ImageService {
 
-    public static byte[] getBytesFromStream(InputStream is) throws IOException {
-        int len;
-        int size = 1024;
-        byte[] buf;
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        buf = new byte[size];
-        while ((len = is.read(buf, 0, size)) != -1) {
-            bos.write(buf, 0, len);
-        }
-        buf = bos.toByteArray();
-        return buf;
-    }
+    /**
+     * 下载图片
+     **/
+    @GET("{url}")
+    @Headers({"Content-Type: image/jpeg"})
+    Observable<ResponseBody> downloadImage(@Path("url") String url);
 
-    public static void saveBytesToFile(byte[] bytes, String path) {
-        FileOutputStream fileOuputStream = null;
-        try {
-            fileOuputStream = new FileOutputStream(path);
-            fileOuputStream.write(bytes);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                fileOuputStream.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+
+    /**
+     * 文件上传
+     **/
+    @Multipart
+    @POST("upload.php")
+    Call<ResponseBody> upload(@Part MultipartBody.Part file);
+
+
 }
