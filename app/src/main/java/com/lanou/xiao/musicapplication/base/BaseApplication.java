@@ -1,16 +1,8 @@
 package com.lanou.xiao.musicapplication.base;
 
-import android.app.Activity;
 import android.app.Application;
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
 
 import com.lanou.xiao.musicapplication.ServiceUtils;
-import com.lanou.xiao.musicapplication.service.FloatViewService;
-
-import org.greenrobot.eventbus.EventBus;
 
 /**
  * 　　　　　　　　┏┓　　　┏┓+ +
@@ -38,7 +30,7 @@ import org.greenrobot.eventbus.EventBus;
 
 public class BaseApplication extends Application {
 
-    private int appCount = 0;
+//    private int appCount = 0;
 
     @Override
     public void onCreate() {
@@ -48,7 +40,7 @@ public class BaseApplication extends Application {
         ServiceUtils.startMusicService(this);
 
 
-
+/*
         registerActivityLifecycleCallbacks(
                 new ActivityLifecycleCallbacks() {
                     @Override
@@ -87,7 +79,7 @@ public class BaseApplication extends Application {
                     @Override
                     public void onActivityDestroyed(Activity activity) {
                     }
-                });
+                });*/
     }
 
 }
