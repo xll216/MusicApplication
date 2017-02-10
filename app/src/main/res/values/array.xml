@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="main">
+        <item>@string/main_me</item>
+        <item>@string/main_music_house</item>
+        <item>@string/main_discover</item>
+    </string-array>
+</resources>

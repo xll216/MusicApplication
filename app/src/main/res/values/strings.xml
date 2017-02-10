@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">MusicApplication</string>
 
+    <string name="main_me">我的</string>
+    <string name="main_music_house">音乐馆</string>
+    <string name="main_discover">发现</string>
+
 </resources>

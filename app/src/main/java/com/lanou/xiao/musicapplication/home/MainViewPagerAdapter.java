@@ -1,14 +1,9 @@
-package com.lanou.xiao.musicapplication;
+package com.lanou.xiao.musicapplication.home;
 
-import android.view.View;
-import android.widget.TextView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 
-import com.lanou.xiao.musicapplication.base.BaseFragment;
-import com.lanou.xiao.musicapplication.eventbusmsg.BaseMsg;
-import com.lanou.xiao.musicapplication.eventbusmsg.ServiceCreateMsg;
-import com.lanou.xiao.musicapplication.eventbusmsg.ServiceSendMsg;
-
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -35,23 +30,28 @@ import java.util.List;
  * 　　　　　　　　　　┗┻┛　┗┻┛+ + + +
  */
 
-public class LocalFragment extends BaseFragment {
-    private TextView playTv;
+public class MainViewPagerAdapter extends FragmentPagerAdapter {
+    private String[] titles;
+    private List<Fragment> fragments;
 
-    @Override
-    public int getLayoutId() {
-        return R.layout.fragment_local;
+    public MainViewPagerAdapter(FragmentManager fm, List<Fragment> fragments, String[] titles) {
+        super(fm);
+        this.fragments = fragments;
+        this.titles = titles;
     }
 
     @Override
-    public void initView(View view) {
-        playTv = bindView(R.id.playTv);
+    public Fragment getItem(int position) {
+        return fragments.get(position);
     }
 
     @Override
-    public void initData() {
-
+    public int getCount() {
+        return titles.length;
     }
 
-
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return titles[position];
+    }
 }
